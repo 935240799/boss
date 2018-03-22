@@ -2,16 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.expressProject</groupId>
-    <artifactId>bos_management</artifactId>
+    <artifactId>common_parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>bos_management_dao</artifactId>
-  <description>管理后台的Dao</description>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.expressProject</groupId>
-  		<artifactId>bos_mangement_domain</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+  <groupId>com.ExpressProject</groupId>
+  <artifactId>expressProjectUtils</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <description>工具类
+工具类</description>
 </project>

@@ -7,4 +7,16 @@
   </parent>
   <artifactId>bos_management_service</artifactId>
   <description>管理后台的service</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.expressProject</groupId>
+  		<artifactId>bos_management_dao</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.ExpressProject</groupId>
+  		<artifactId>expressProjectUtils</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

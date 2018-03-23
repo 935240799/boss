@@ -14,7 +14,7 @@ import com.expressProject.bos.domain.Area;
  */
 public interface AreaRepository extends JpaRepository<Area, Long>{
 
-    @Query("from Area where province like ?1 or city like ?1 or district like ?1 or postcode like ?1 or citycode like ?1or shortcode like ?1")
+    @Query("from Area where province like ?1 or  city like ?1  or  district like ?1  or  postcode like ?1  or  citycode like ?1  or  shortcode like ?1")
     List<Area> findQ(String q);
 
 }

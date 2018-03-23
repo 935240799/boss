@@ -1,5 +1,9 @@
 package com.expressProject.bos.service.base;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.expressProject.bos.domain.Courier;
 import com.expressProject.bos.domain.SubArea;
 
 /**  
@@ -10,6 +14,8 @@ import com.expressProject.bos.domain.SubArea;
 public interface SubAreaService {
 
     void save(SubArea model);
+
+    Page<SubArea> findAll(Pageable pageable);
 
 }
   

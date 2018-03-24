@@ -124,4 +124,15 @@ public class FixedArea {
         this.company = company;
     }
 
+    @Override
+    public String toString() {
+        return "FixedArea [id=" + id + ", fixedAreaName=" + fixedAreaName + ", fixedAreaLeader="
+                + fixedAreaLeader + ", telephone=" + telephone + ", company=" + company
+                + ", operatingTime=" + operatingTime + ", operator=" + operator
+                + ", operatingCompany=" + operatingCompany + ", subareas=" + subareas
+                + ", couriers=" + couriers + "]";
+    }
+    
+    
+
 }

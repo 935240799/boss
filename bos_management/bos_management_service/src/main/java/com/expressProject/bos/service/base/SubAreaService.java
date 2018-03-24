@@ -3,7 +3,6 @@ package com.expressProject.bos.service.base;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.expressProject.bos.domain.Courier;
 import com.expressProject.bos.domain.SubArea;
 
 /**  

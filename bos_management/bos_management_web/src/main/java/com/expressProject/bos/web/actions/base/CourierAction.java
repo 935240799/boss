@@ -32,6 +32,7 @@ import com.expressProject.bos.domain.Area;
 import com.expressProject.bos.domain.Courier;
 import com.expressProject.bos.domain.Standard;
 import com.expressProject.bos.service.base.CourierService;
+import com.expressProject.bos.web.actions.CommonAction;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -48,13 +49,16 @@ import net.sf.json.JsonConfig;
 @ParentPackage("struts-default")
 @Controller
 @Scope("prototype")
-public class CourierAction extends ActionSupport implements ModelDriven<Courier>{
+public class CourierAction extends CommonAction<Courier>{
     
+    public CourierAction() {
+        super(Courier.class);  
+    }
+
     /**  
      * serialVersionUID:TODO(用一句话描述这个变量表示什么).  
      * @since JDK 1.6  
      */
-    private static final long serialVersionUID = 1L;
     private Courier model = new Courier();
     
     @Override
@@ -75,17 +79,6 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
         return SUCCESS;
     }
     
-    private int page;
-    private int rows;
-    
-    
-    
-    public void setPage(int page) {
-        this.page = page;
-    }
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
 
     //快递员分页
     @Action("courierAction_PageQuery")
@@ -184,6 +177,42 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
     public String batchDel(){
         courierService.batchDel(ids);
         return SUCCESS;
+    }
+    
+    //查询所有在职的快递员
+    @Action(value="courierAction_listajax")
+    public String listajax() throws IOException{
+        Specification<Courier> specification = new Specification<Courier>() {
+
+            @Override
+            public Predicate toPredicate(Root<Courier> root, CriteriaQuery<?> query,
+                    CriteriaBuilder cb) {
+                //比较空值
+                Predicate predicate = cb.isNull(root.get("deltag").as(Character.class));
+                return predicate;
+            }
+        };
+        Page<Courier> p = courierService.findAll(specification,null);
+        List<Courier> list = p.getContent();
+        
+        JsonConfig jsonConfig = new JsonConfig();
+        jsonConfig.setExcludes(new String[] {"fixedAreas" , "takeTime"});
+        list2json(list,jsonConfig);
+        
+        return NONE;
+    }
+    
+    @Action(value="courierAction_listajax2")
+    public String listajax2() throws IOException{
+        //查询所有的在职的快递员
+        List<Courier> list = courierService.findAvaible();
+        
+        JsonConfig jsonConfig = new JsonConfig();
+        jsonConfig.setExcludes(new String[] {"fixedAreas" , "takeTime"});
+        list2json(list,jsonConfig);
+        
+        return NONE;
+        
     }
 }
   

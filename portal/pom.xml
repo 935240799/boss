@@ -16,5 +16,11 @@
   		<artifactId>expressProjectUtils</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>com.expressProject</groupId>
+  		<artifactId>crm</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+  	</dependency>
   </dependencies>
 </project>

@@ -51,5 +51,20 @@ public interface CustomerService {
     @Path("/save")
     void save(Customer customer);
     
+    //激活
+    @PUT
+    @Path("/active")
+    void active(@QueryParam("telephone") String telephone);
+    
+    //检测用户是否激活
+    @GET
+    @Path("/isActived")
+    Customer isActived(@QueryParam("telephone") String telephone);
+    
+    //登入
+    @GET
+    @Path("/login")
+    Customer login(@QueryParam("telephone") String telephone,@QueryParam("password") String password);
+    
 }
   

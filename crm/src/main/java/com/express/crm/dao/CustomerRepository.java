@@ -30,6 +30,17 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>{
     @Query("update Customer set fixedAreaId = ?2 where id = ?1")
     @Modifying
     void bindCustomer2FixedArea(Long customerId, String fixedAreaId);
+
+    //激活
+    @Query("update Customer set type = 1 where telephone = ?")
+    @Modifying
+    void active(String telephone);
+
+    //检测用户是否激活
+    Customer findByTelephone(String telephone);
+
+    //登入
+    Customer findByTelephoneAndPassword(String telephone, String password);
     
 }
   
